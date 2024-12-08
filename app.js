@@ -133,8 +133,13 @@ passport.deserializeUser(async (id, done) => {
 
 // Signup Page
 app.get('/signup', (req, res) => {
-    res.sendFile(__dirname + '/public/signup.html');
-  });
+  // Check if the user is already authenticated
+  if (req.isAuthenticated()) {
+    // Redirect to the dashboard if the user is already logged in
+    return res.redirect('/dashboard');
+  }
+  res.sendFile(__dirname + '/public/signup.html');
+});
 
 
 app.get('/', (req, res) => {
