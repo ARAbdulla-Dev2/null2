@@ -108,7 +108,7 @@ passport.deserializeUser(async (id, done) => {
     }
   });
   
-
+/*
   app.use(async (req, res, next) => {
     const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
   
@@ -127,7 +127,7 @@ passport.deserializeUser(async (id, done) => {
     }
     next();
   });
-  
+  */
 
 // Routes
 
