@@ -144,10 +144,10 @@ app.get('/', (req, res) => {
    
 
 // Google Authentication
-app.get('https://api.arabdullah.top/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 app.get(
-  'https://api.arabdullah.top/auth/google/callback',
+  '/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/signup' }),
   (req, res) => {
     if (req.user.username && req.user.phone) {
