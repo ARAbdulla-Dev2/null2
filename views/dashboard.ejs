@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARAbdulla-Dev's API - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="img/logo.png" rel="icon">
+   
+
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(120deg, #0d1117, #161b22);
+      color: #ffffff;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .profile-menu {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+    }
+
+    .dropdown-menu {
+      background: #161b22;
+      border: 1px solid #333;
+    }
+
+    .dropdown-item{
+      color: white;
+    }
+
+    .dropdown-item:hover {
+      background: #007bff;
+      color: #ffffff;
+    }
+
+    .api-key-box {
+      text-align: center;
+      margin: 1.5rem auto;
+    }
+
+    .api-key {
+      background: #1c1f26;
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .api-key-btn {
+      background: #007bff;
+      color: #ffffff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .api-key-btn:hover {
+      background: #0056b3;
+    }
+
+    .center-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem 2rem;
+    }
+
+    .info-box {
+      background: #1c1f26;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      flex: 1;
+      min-width: 280px;
+      padding: 30px;
+      width: 250px;
+    }
+
+    .info-box h2{
+      font-size: 1.5em;
+    }
+
+    .info-box p{
+      font-size: 1.2em;
+    }
+
+    footer {
+      background: transparent;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    footer a {
+      color: #a5a5a5;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      color: #007bff;
+    }
+
+    footer .fab {
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .center-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .info-box {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-menu">
+    <div class="dropdown">
+      <img src="<%= user.profilePic %>" alt="Profile Picture" class="rounded-circle" width="50" height="50" data-bs-toggle="dropdown" style="cursor: pointer;">
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+        <li><a class="dropdown-item" href="#" onclick="deleteAccount()">Delete Account</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <br/>  <br/>  <br/>
+  <div class="api-key-box">
+    <h2>Your API Key</h2>
+    <span class="api-key" id="apiKey"><%= user.apiKey %></span>
+    <button class="api-key-btn" onclick="copyToClipboard('<%= user.apiKey %>')">Copy API Key</button>
+  </div>
+
+  <div class="center-content">
+    <div class="info-box">
+      <h2>API Requests Remaining</h2>
+      <p><%= user.requestLimit === Infinity ? "Unlimited" : user.requestLimit - user.requestsMade %></p>
+    </div>
+    <div class="info-box">
+      <h2>Your Plan</h2>
+      <p><%= user.requestLimit === Infinity ? "Unlimited Requests" : user.requestLimit %></p>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <a href="/about">About</a> | <a href="/contact">Contact</a> | <a href="/docs">Docs</a>
+    </div>
+    <div class="mt-2">
+      <a href="https://github.com/ARAbdulla-Dev"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/94704281955"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://youtube.com/@ARAbdullaDev"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p>&copy; 2024 ARAbdulla-Dev. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    async function deleteAccount() {
+      if (confirm('Are you sure you want to delete your account?')) {
+        const response = await fetch('/delete-account', { method: 'POST' });
+        if (response.ok) {
+          alert('Account deleted successfully.');
+          window.location.href = '/signup';
+        } else {
+          alert('Failed to delete account.');
+        }
+      }
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('API Key copied to clipboard!');
+      }).catch(err => {
+        alert('Failed to copy API Key.');
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

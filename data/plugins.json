@@ -1,0 +1,38 @@
+{
+    "plugin1": {
+      "name": "sin",
+      "description": "Search and get download links for Sinhala movies.",
+      "usage": "https://api.arabdullah.top/api?plugin=sin&apiKey=YourApiKey&query=MovieName",
+      "exampleInput": "https://api.arabdullah.top/api?plugin=sin&apiKey=YourApiKey&query=kadira",
+      "exampleOutput": "{\n  \"status\": \"true\",\n  \"developer\": \"@ARAbdulla-Dev\",\n  \"plugin\": \"sin\",\n  \"user\": \"ARAbdullaDev\",\n  \"result\": [\n    {\n      \"title\": \"_කදිර_දිව්‍යරාජ​_Kadira_Divyaraja_2023_720p_x265_@sinhalafilmsgo.mkv\",\n      \"thumbnail\": \"https://cdn2.sinhalachr.workers.dev/https://infinecdn.sirv.com/Images/kadira%20diwyaraja%20full%20movie.avif\",\n      \"size\": \"1.70 GB\",\n      \"resolution\": \"720p\",\n      \"finalDownloadLink\": \"https://iws.sinhalachr.workers.dev/?id=kUfgDb9ftV7mzMQPwHzHRFKz&assetToken=Y5MqumpWkttnfmyoU5868oSm&download=true\"\n    }\n  ]\n}"
+    },
+    "plugin2": {
+      "name": "gemini",
+      "description": "Get responses from Google Gemini.",
+      "usage": "https://api.arabdullah.top/api?plugin=gemini&apiKey=YourApiKey&query=Response%20Text",
+      "exampleInput": "https://api.arabdullah.top/api?plugin=gemini&apiKey=YourApiKey&query=Hello",
+      "exampleOutput": "{\n  \"status\": \"true\",\n  \"developer\": \"@ARAbdulla-Dev\",\n  \"plugin\": \"gemini\",\n  \"user\": \"ARAbdullaDev\",\n  \"result\": {\n    \"query\": \"hello\",\n    \"response\": \"Hello there! How can I help you today?\\n\"\n  }\n}"
+    },
+    "plugin3": {
+      "name": "isaiduben",
+      "description": "Get English movies from isaidub9.com.",
+      "usage": "http://127.0.0.1/api?plugin=isaiduben&apiKey=YourApiKey&query=Year",
+      "exampleInput": "http://127.0.0.1/api?plugin=isaiduben&apiKey=YourApiKey&query=2024",
+      "exampleOutput": "{\n  \"status\": \"true\",\n  \"developer\": \"@ARAbdulla-Dev\",\n  \"plugin\": \"isaiduben\",\n  \"user\": \"ARAbdullaDev\",\n  \"result\": [\n    {\n      \"title\": \"Gladiator 2 (2024) (English)\",\n      \"downloadUrls\": {\n        \"720p\": \"https://d18.uptocdn.com/download.php?hash=7dbabe7d4f43993c17da675060720c04&exp=1733671545&path=Hollywood%20Movies%20(English)%2FGladiator%202%20(2024)%20(English)%2FGladiator%202%20(PreDVD)%2FGladiator%202%20(720p%20HD)%2FGladiator%202%202024%20English%20720p%20HD.mp4\",\n        \"360p\": \"https://d18.uptocdn.com/download.php?hash=8a8be08a5909830fb3598d272c5d0488&exp=1733671545&path=Hollywood%20Movies%20(English)%2FGladiator%202%20(2024)%20(English)%2FGladiator%202%20(PreDVD)%2FGladiator%202%20(360p%20HD)%2FGladiator%202%202024%20English%20360p%20HD.mp4\"\n      }\n    }\n  ]\n}"
+    },
+    "plugin4": {
+      "name": "isaidubta",
+      "description": "Get Tamil dubbed movies from isaidub9.com.",
+      "usage": "http://127.0.0.1/api?plugin=isaidubta&apiKey=YourApiKey&query=Year",
+      "exampleInput": "http://127.0.0.1/api?plugin=isaidubta&apiKey=YourApiKey&query=2024",
+      "exampleOutput": "{\n  \"status\": \"true\",\n  \"developer\": \"@ARAbdulla-Dev\",\n  \"plugin\": \"isaidubta\",\n  \"user\": \"ARAbdullaDev\",\n  \"result\": [\n    {\n      \"title\": \"The PA And The Manhattan Prince (2024)\",\n      \"downloadUrls\": {\n        \"720p\": \"https://s02.dubshare.one/The_PA_And_The_Manhattan_Prince_2024_720p_HD.mp4?\",\n        \"360p\": \"https://s03.dubshare.one/The_PA_And_The_Manhattan_Prince_2024_360p_HD.mp4?\"\n      }\n    },\n    {\n      \"title\": \"Sting (2024)\",\n      \"downloadUrls\": {\n        \"720p\": \"https://s07.dubshare.one/Sting_2024_720p_HD.mp4?\",\n        \"360p\": \"https://s05.dubshare.one/Sting_2024_360p_HD.mp4?\"\n      }\n    }\n  ]\n}"
+    },
+    "plugin5": {
+      "name": "quran",
+      "description": "Search for Quran Surahs and get MP3 download URLs.",
+      "usage": "http://127.0.0.1/api?plugin=quran&apiKey=YourApiKey&query=SurahName",
+      "exampleInput": "http://127.0.0.1/api?plugin=quran&apiKey=YourApiKey&query=fatiha",
+      "exampleOutput": "{\n  \"status\": \"true\",\n  \"developer\": \"@ARAbdulla-Dev\",\n  \"plugin\": \"quran\",\n  \"user\": \"ARAbdullaDev\",\n  \"result\": {\n    \"Abdallah Kamel\": {\"Fatiha\": \"https://server16.mp3quran.net/kamel/Rewayat-Hafs-A-n-Assem/001.mp3\"},\n    \"Abdel Rahman Benmoussa\": {\"Fatiha\": \"https://ia800608.us.archive.org/31/items/alfirdwsiy1433_gmail_46799767979696767967469644696496799201706/001.mp3\"}\n  }\n}"
+    }
+  }
+  
